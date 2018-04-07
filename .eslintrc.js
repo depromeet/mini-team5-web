@@ -10,8 +10,18 @@ module.exports = {
       "experimentalObjectRestSpread": true,
       "jsx": true
     },
-    "sourceType": "module",
-    "ecmaVersion": 2017
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": 2017,
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ]
   },
   "plugins": [
     "react"
