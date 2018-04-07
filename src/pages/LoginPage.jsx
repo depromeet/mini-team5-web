@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 class LoginPage extends React.Component {
   constructor(props){
@@ -16,7 +17,9 @@ class LoginPage extends React.Component {
     return (
       <div>
         <textarea onChange={this.onTextChange}/>
-        <button onClick={this.onLogin}>로그인</button>
+        <button onClick={this.onLogin}>
+          <Link to="/boards">로그인</Link>
+        </button>
       </div>
     );
   }
