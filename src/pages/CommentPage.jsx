@@ -3,28 +3,23 @@ import axios from "axios";
 import "./CommentPage.css";
 
 import Comment from "../Components/Comment/Comment";
+import HttpConnector from "../network/HttpConnector";
 
 class CommentPage extends Component {
   constructor(props) {
     super(props);
-    this.ajax = axios.create({
-      baseURL: "http://172.16.6.194:8080/"
-    });
     this.state = {
       comments: []
     };
   }
 
-  async componentWillMount() {
+  componentWillMount() {
     const topic = this.props.topic;
-    try {
-      const response = await this.ajax.get(`/board/${topic}/list`);
-      console.log(response);
+    const response = HttpConnector.getComments(topic);
+    if (response !== null) {
       this.setState({
         comments: response
       });
-    } catch (error) {
-      console.error(error);
     }
   }
 

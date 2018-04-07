@@ -1,19 +1,19 @@
 import axios from "axios";
 
-class HttpConnector{
+class HttpConnector {
   constructor() {
-    this.baseURL = "http://172.16.6.194:8080";
+    this.baseURL = "https://depromeet-mini5-api.herokuapp.com/";
     this.axiosInstance = axios.create({
       baseURL: this.baseURL,
     });
   }
 
-  async login({nickname}) {
+  async login({ nickname }) {
     try {
       await this.axiosInstance.post("/login", {
         nickname: nickname
       }, {
-        headers: { "Content-Type": "application/json"}
+        headers: { "Content-Type": "application/json" }
       });
 
       return true;
@@ -25,10 +25,20 @@ class HttpConnector{
 
   async getKeywords() {
     try {
-      const res = await this.axiosInstance.get("/rank/naver")
+      const res = await this.axiosInstance.get("/rank/naver");
       return res.data;
     } catch (err) {
       console.error(err);
+    }
+  }
+
+  async getComments(topic) {
+    try {
+      const response = await HttpConnector.get(`/board/${topic}/list`);
+      console.log(response);
+      return response;
+    } catch (error) {
+      console.error(error);
       return null;
     }
   }
