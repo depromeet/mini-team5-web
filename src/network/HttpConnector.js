@@ -2,7 +2,7 @@ import axios from "axios";
 
 class HttpConnector{
   constructor() {
-    this.baseURL = "http://172.16.6.194:8080";
+    this.baseURL = "https://depromeet-mini5-api.herokuapp.com";
     this.axiosInstance = axios.create({
       baseURL: this.baseURL,
     });
@@ -26,6 +26,16 @@ class HttpConnector{
   async getKeywords() {
     try {
       const res = await this.axiosInstance.get("/rank/naver")
+      return res.data;
+    } catch (err) {
+      console.error(err);
+      return null;
+    }
+  }
+
+  async getComments({keyword}) {
+    try {
+      const res = await this.axiosInstance.get(`/board/${keyword}/list`);
       return res.data;
     } catch (err) {
       console.error(err);
