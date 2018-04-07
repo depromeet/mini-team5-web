@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "node-sass": "^4.8.3",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-router-dom": "^4.2.2",
@@ -11,6 +12,7 @@
     "storybook": "^1.0.0"
   },
   "scripts": {
+    "sass": "node-sass src/scss/ -o src/css/ --style compressed",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
@@ -19,10 +21,10 @@
     "build-storybook": "build-storybook -s public"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.4.0",
+    "@storybook/addon-links": "^3.4.0",
     "@storybook/react": "^3.4.0",
     "eslint": "^4.19.1",
-    "eslint-plugin-react": "^7.7.0",
-    "@storybook/addon-actions": "^3.4.0",
-    "@storybook/addon-links": "^3.4.0"
+    "eslint-plugin-react": "^7.7.0"
   }
 }
