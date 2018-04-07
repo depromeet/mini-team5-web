@@ -7,11 +7,11 @@ import CommentPage from "../pages/CommentPage";
 class App extends Component {
   render() {
     return (
-      <div>
+      <React.Fragment>
         <Route exact path="/" component={LoginPage} />
         <Route exact path="/boards" component={BoardPage} />
         <Route exact path="/comments/:keyword" component={CommentPage} />
-      </div>
+      </React.Fragment>
     );
   }
 }

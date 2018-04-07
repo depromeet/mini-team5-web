@@ -1,23 +1,53 @@
 import React from "react";
 import HttpConnector from "../network/HttpConnector";
+import splash from "../resources/images/boob.gif";
+import {Transition} from 'semantic-ui-react'
+import {LoginBackground, LoginInputLine} from '../Components/login';
 
 class LoginPage extends React.Component {
   constructor(props){
     super(props);
 
     this.state = {
-      nickname: ""
+      nickname: "",
+
+      contents: []
     }
 
     this.onTextChange = this.onTextChange.bind(this);
     this.onLogin = this.onLogin.bind(this);
+
+    setTimeout(() => {
+      this.setState({
+        contents: [...this.state.contents, (
+            <div key="background">
+              <LoginBackground/>
+            </div>
+        )],
+        animation: "fly right"
+      })
+    }, 2000);
+
+    setTimeout(() => {
+      this.setState({
+        contents: [...this.state.contents, (
+            <div key="inputline">
+              <LoginInputLine/>
+            </div>
+        )]
+      })
+    }, 3000);
   }
 
   render() {
     return (
-      <div>
-        <textarea onChange={this.onTextChange}/>
-        <button onClick={this.onLogin}>로그인</button>
+      <div className="login-container">
+        {/*<textarea onChange={this.onTextChange}/>*/}
+        {/*<button onClick={this.onLogin}>로그인</button>*/}
+        <img className="login-splash" src={splash}/>
+        <Transition.Group animation={this.state.animation} duration={1000}>
+          {this.state.contents}
+        </Transition.Group>
       </div>
     );
   }
