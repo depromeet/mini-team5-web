@@ -1,13 +1,14 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import HttpConnector from "../network/HttpConnector";
 
 class LoginPage extends React.Component {
   constructor(props){
     super(props);
 
-    this.stste = ({
+    this.state = {
       nickname: ""
-    });
+    }
 
     this.onTextChange = this.onTextChange.bind(this);
     this.onLogin = this.onLogin.bind(this);
@@ -17,9 +18,7 @@ class LoginPage extends React.Component {
     return (
       <div>
         <textarea onChange={this.onTextChange}/>
-        <button onClick={this.onLogin}>
-          <Link to="/boards">로그인</Link>
-        </button>
+        <button onClick={this.onLogin}>로그인</button>
       </div>
     );
   }
@@ -29,8 +28,22 @@ class LoginPage extends React.Component {
     this.setState({nickname: text});
   }
 
-  onLogin() {
-    alert(this.state.nickname);
+  async onLogin() {
+    const nickname = this.state.nickname;
+
+    if (!nickname) {
+      alert("닉네임을 입력해주세요!");
+      return;
+    }
+
+    const res = await HttpConnector.login({nickName: nickname});
+    if (res) {
+      alert("success");
+      this.props.history.push("boards");
+    }
+    else {
+      alert("서버에서 문제가 발생했습니다!");
+    }
   }
 }
 
