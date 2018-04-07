@@ -5,17 +5,27 @@ import "./CommentPage.css";
 import Comment from "../Components/Comment/Comment";
 
 class CommentPage extends Component {
-  // TODO set up ajax call
   constructor(props) {
     super(props);
     this.ajax = axios.create({
-      baseURL: "/"
+      baseURL: "http://172.16.6.194:8080/"
     });
+    this.state = {
+      comments: []
+    };
   }
 
-  // TODO get comments by ajax call
-  componentWillMount() {
-
+  async componentWillMount() {
+    const topic = this.props.topic;
+    try {
+      const response = await this.ajax.get(`/board/${topic}/list`);
+      console.log(response);
+      this.setState({
+        comments: response
+      });
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   render() {
@@ -23,9 +33,8 @@ class CommentPage extends Component {
       <div id="commentpage">
         <h1>{this.props.topic}</h1>
         <div id="comment-list">
-          {/* Get comment by ajax */}
-          <Comment />
-          <Comment />
+          {this.state.comments.map((element) =>
+            <Comment content={element.content} nickname={element.nickname} />)}
         </div>
       </div>
     );
@@ -33,7 +42,7 @@ class CommentPage extends Component {
 
   // Maybe not needed?
   componentDidMount() {
-
+    console.log(this.props);
   }
 
 }
