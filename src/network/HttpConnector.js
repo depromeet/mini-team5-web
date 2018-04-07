@@ -10,15 +10,26 @@ class HttpConnector{
 
   async login({nickname}) {
     try {
-      const response = await this.axiosInstance.post("/login", {
+      await this.axiosInstance.post("/login", {
         nickname: nickname
       }, {
         headers: { "Content-Type": "application/json"}
       });
+
       return true;
     } catch (err) {
       console.error(err);
       return false;
+    }
+  }
+
+  async getKeywords() {
+    try {
+      const res = await this.axiosInstance.get("/rank/naver")
+      return res.data;
+    } catch (err) {
+      console.error(err);
+      return null;
     }
   }
 }
