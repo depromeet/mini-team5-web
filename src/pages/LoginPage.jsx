@@ -1,5 +1,4 @@
 import React from "react";
-import {Link} from "react-router-dom";
 import HttpConnector from "../network/HttpConnector";
 
 class LoginPage extends React.Component {

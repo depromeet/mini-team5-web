@@ -1,23 +1,32 @@
 import React from "react";
 import BoardItem from "../Components/BoardItem";
+import HttpConnector from "../network/HttpConnector";
 
 class BoardPage extends React.Component {
   constructor(props){
     super(props);
 
     this.state = {
-      boardsItems: ["hello", "hello2"]
+      boardsItems: []
     };
   }
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         {this.state.boardsItems.map((item) => (
-          <BoardItem title={item} key={item}/>
+          <BoardItem title={item.keyword} key={item.keyword}/>
         ))}
-      </div>
+      </React.Fragment>
     );
+  }
+
+  async componentDidMount() {
+    const keywords = await HttpConnector.getKeywords();
+    console.log(keywords);
+    this.setState({
+      boardsItems: keywords
+    })
   }
 }
 
