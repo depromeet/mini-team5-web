@@ -1,13 +1,22 @@
 import React from "react";
-import {Link} from "react-router-dom";
 
 class BoardItem extends React.Component {
+  constructor(props){
+    super(props);
+
+    this.onClick = this.onClick.bind(this);
+  }
+
   render() {
     return (
-      <div>
-        <Link to="/boards">{this.props.title}</Link>
+      <div onClick={this.onClick}>
+        {this.props.keyword}
       </div>
     );
+  }
+
+  onClick(){
+    this.props.history.push("comments/" + this.props.keyword);
   }
 }
 
