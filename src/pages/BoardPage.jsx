@@ -12,10 +12,12 @@ class BoardPage extends React.Component {
   }
 
   render() {
+    const history = this.props.history;
+
     return (
       <React.Fragment>
         {this.state.boardsItems.map((item) => (
-          <BoardItem title={item.keyword} key={item.keyword}/>
+          <BoardItem keyword={item.keyword} key={item.keyword} history={history}/>
         ))}
       </React.Fragment>
     );
