@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import HttpConnector from "../../network/HttpConnector";
 
 class LoginInputLine extends React.Component {
@@ -7,7 +7,7 @@ class LoginInputLine extends React.Component {
 
     this.state = {
       nickname: ""
-    }
+    };
 
     this.onTextChange = this.onTextChange.bind(this);
     this.onLogin = this.onLogin.bind(this);
@@ -15,16 +15,16 @@ class LoginInputLine extends React.Component {
 
   render() {
     return (
-        <div className="login-input-line">
-          <textarea onChange={this.onTextChange}/>
-          <button onClick={this.onLogin}>로그인</button>
-        </div>
-    )
+      <div className="login-input-line">
+        <textarea onChange={this.onTextChange} />
+        <button onClick={this.onLogin}>로그인</button>
+      </div>
+    );
   }
 
   onTextChange(e) {
     const text = e.target.value;
-    this.setState({nickname: text});
+    this.setState({ nickname: text });
   }
 
   async onLogin() {
@@ -35,7 +35,7 @@ class LoginInputLine extends React.Component {
       return;
     }
 
-    const res = await HttpConnector.login({nickName: nickname});
+    const res = await HttpConnector.login({ nickName: nickname });
     if (res) {
       alert("success");
       this.props.history.push("boards");

@@ -23,6 +23,24 @@ class HttpConnector {
     }
   }
 
+  async getNews(keyword) {
+    try {
+      const res = await this.axiosInstance.get(`/news/naver/${keyword}`);
+      return res.data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  async getImageURL(keyword) {
+    try {
+      const res = await this.axiosInstance.get(`/image/naver/${keyword}`);
+      return res.data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   async getKeywords() {
     try {
       const res = await this.axiosInstance.get("/rank/naver");
@@ -32,24 +50,12 @@ class HttpConnector {
     }
   }
 
-  async getComments(topic) {
-    try {
-      const response = await HttpConnector.get(`/board/${topic}/list`);
-      console.log(response);
-      return response;
-    } catch (error) {
-      console.error(error);
-      return null;
-    }
-  }
-
-  async getComments({ keyword }) {
+  async getComments(keyword) {
     try {
       const res = await this.axiosInstance.get(`/board/${keyword}/list`);
       return res.data;
     } catch (err) {
       console.error(err);
-      return null;
     }
   }
 }

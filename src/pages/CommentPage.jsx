@@ -1,37 +1,18 @@
-import React, { Component } from "react";
-import Comment from "../Components/Comment/Comment";
-import HttpConnector from "../network/HttpConnector";
+import React, { Fragment } from "react";
+import Sidebar from "../Components/Sidebar";
+import News from "../Components/News";
+import CommentList from "../Components/Comment/CommentList";
 
-class CommentPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      keyword: "",
-      comments: []
-    };
-  }
 
-  componentWillMount() {
-    const topic = this.props.topic;
-    const response = HttpConnector.getComments(topic);
-    if (response !== null) {
-      this.setState({
-        comments: response
-      });
-    }
-  }
-
-  render() {
-    return (
-      <div id="commentpage">
-        <h1>{this.state.keyword}</h1>
-        <div id="comment-list">
-          {this.state.comments.map((element) =>
-            <Comment content={element.content} nickname={element.nickname} />)}
-        </div>
+export default (props) => {
+  const keyword = props.location.state.keyword;
+  return (
+    <Fragment>
+      <Sidebar nickname="Gyu" />
+      <div className="comment-news">
+        <News topic={keyword} />
       </div>
-    );
-  }
-}
-
-export default CommentPage;
+      <CommentList keyword={keyword} />
+    </Fragment>
+  );
+};

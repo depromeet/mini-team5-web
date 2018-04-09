@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 class LoginBackground extends React.Component {
   render() {
     return (
-        <div className="login-background">
-        </div>
-    )
+      <div className="login-background">
+      </div>
+    );
   }
 }
 
