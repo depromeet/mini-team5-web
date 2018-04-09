@@ -1,23 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-class BoardItem extends React.Component {
-  constructor(props){
-    super(props);
 
-    this.onClick = this.onClick.bind(this);
-  }
-
-  render() {
-    return (
-      <div onClick={this.onClick}>
-        {this.props.keyword}
-      </div>
-    );
-  }
-
-  onClick(){
-    this.props.history.push("comments/" + this.props.keyword);
-  }
-}
-
-export default BoardItem;
+export default ({ keyword }) => {
+  const url = `boards/${keyword}/comments`;
+  return (
+    <div>
+      <Link to={{ pathname: url, state: { keyword } }}>{keyword}</Link>
+    </div>
+  );
+};
