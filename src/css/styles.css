@@ -154,6 +154,70 @@ body {
   right: 0;
   margin: auto; }
 
+.login-hr {
+  height: 87px;
+  width: 0.8px;
+  background: white;
+  border-right: 0px;
+  float: left;
+  margin-left: 50px;
+  margin-top: 27px;
+  opacity: 0.5; }
+
+.login-input {
+  font-family: Futura;
+  font-size: 40px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  white-space: pre-line;
+  color: #ffffff;
+  opacity: 0.5;
+  float: left;
+  margin-left: 21px;
+  margin-top: 45px;
+  background: none;
+  border: none;
+  width: 400px; }
+
+.login-placeholder {
+  font-family: Futura;
+  font-size: 23px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  white-space: pre-line;
+  color: #ffffff;
+  opacity: 0.5;
+  float: left;
+  margin-left: 21px;
+  margin-top: 25px; }
+
+.login-button {
+  font-family: Futura;
+  font-size: 23px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  float: right;
+  margin-right: 36px;
+  margin-top: 50px; }
+
+.login-title {
+  position: fixed;
+  margin-left: 57px;
+  margin-top: 40px; }
+
 .login-background {
   position: fixed;
   width: 100%;
