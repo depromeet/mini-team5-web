@@ -181,6 +181,7 @@ body {
   margin-top: 45px;
   background: none;
   border: none;
+  outline: none;
   width: 400px; }
 
 .login-placeholder {
@@ -209,6 +210,8 @@ body {
   letter-spacing: normal;
   text-align: left;
   color: #ffffff;
+  background: transparent;
+  border: transparent;
   float: right;
   margin-right: 36px;
   margin-top: 50px; }
