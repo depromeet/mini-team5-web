@@ -1,0 +1,3 @@
+export default {
+  CHANGE_SELECTED_KEYWORD: "CHANGE_SELECTED_KEYWORD",
+};

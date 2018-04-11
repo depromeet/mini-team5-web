@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from "react";
+import { connect } from "react-redux";
+import { changeSelectedKeyword } from "../actions";
 import Pager from "./Pager";
 
 const ListElement = ({ number, item }) => (
@@ -17,6 +19,8 @@ class Rank extends Component {
       totalPage: 0,
       keywords: []
     };
+
+    //this.onMovePage = this.onMovePage.bind(this);
   }
 
   async componentDidMount() {
@@ -31,14 +35,26 @@ class Rank extends Component {
   render() {
     return (
       <div>
-        <ol className="sidebar-rank">
-          {this.state.keywords.map((item, i) =>
-            <li key={i}><ListElement number={i + 1} item={item.keyword} /></li>)}
+        <ol className="sidebar-rank">{
+          this.state.keywords.map((item, i) =>
+            <li key={i} onClick={this.onMovePage.bind(this, {keyword: item.keyword})}>
+              <ListElement number={i + 1}
+                item={item.keyword}/>
+            </li>
+          )}
         </ol>
         <Pager pageNum={this.state.page} pageTotal={this.state.totalPage} />
       </div>
     );
   }
+
+  onMovePage({keyword}) {
+    this.props.onChangeSelectedKeyword({keyword: keyword});
+  }
 }
 
-export default Rank;
+const mapDispatchToProps = dispatch => ({
+  onChangeSelectedKeyword: ({ keyword }) => dispatch(changeSelectedKeyword({ keyword })),
+});
+
+export default connect(null, mapDispatchToProps)(Rank);

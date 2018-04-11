@@ -1,11 +1,12 @@
 import React, { Component, Fragment } from "react";
+import { connect } from "react-redux";
+import { changeSelectedKeyword } from "../actions";
 import Sidebar from "../Components/Sidebar";
 import News from "../Components/News";
 import CommentList from "../Components/Comment/CommentList";
 import HttpConnector from "../network/HttpConnector";
 
-
-export default class CommentPage extends Component {
+class CommentPage extends Component {
   constructor(props){
     super(props);
 
@@ -19,13 +20,13 @@ export default class CommentPage extends Component {
 
   render() {
     return (
-      this.state.selectedKeyword ?
+      this.props.selectedKeyword ?
         <Fragment>
           <Sidebar nickname={this.props.location.state.nickname} keywords={this.state.keywords} />
           <div className="comment-news">
-            <News topic={this.state.selectedKeyword} />
+            <News topic={this.props.selectedKeyword} />
           </div>
-          <CommentList keyword={this.state.selectedKeyword} />
+          <CommentList keyword={this.props.selectedKeyword} />
         </Fragment> :
         <div/>
     );
@@ -33,11 +34,22 @@ export default class CommentPage extends Component {
 
   async loadKeywords() {
     const keywords = await HttpConnector.getKeywords();
-    const selectedKeyword = keywords ? keywords[0] : "";
+    const selectedKeyword = keywords ? keywords[0].keyword : "";
 
     this.setState({
       keywords: keywords,
-      selectedKeyword: selectedKeyword
     });
+
+    this.props.onChangeSelectedKeyword({keyword: selectedKeyword});
   }
 }
+
+const mapStateToProps = state => ({
+  selectedKeyword: state.KeywordReducer.selectedKeyword
+});
+
+const mapDispatchToProps = dispatch => ({
+  onChangeSelectedKeyword: ({ keyword }) => dispatch(changeSelectedKeyword({ keyword }))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CommentPage);

@@ -12,24 +12,25 @@ class News extends Component {
     };
   }
 
-  async componentDidMount() {
-    const { title, content, newsUrl } = await this.getNews(this.props.topic);
-    const { imageUrl } = await this.getImageURL(this.props.topic);
-    this.setState({
-      newsTitle: title,
-      newsContent: content,
-      newsUrl,
-      imageUrl
-    });
+  async componentWillReceiveProps(nextProps) {
+    // const { title, content, newsUrl } = await this.getNews({topic: nextProps.topic});
+    // const { imageUrl } = await this.getImageURL({topic: nextProps.topic});
+    // this.setState({
+    //   newsTitle: title,
+    //   newsContent: content,
+    //   newsUrl,
+    //   imageUrl
+    // });
+    await this.loadNews({topic: nextProps.topic});
   }
 
-  async getNews(topic) {
-    const news = await HttpConnector.getNews(this.props.topic);
+  async getNews({topic}) {
+    const news = await HttpConnector.getNews(topic);
     return news;
   }
 
-  async getImageURL(topic) {
-    const imageURL = await HttpConnector.getImageURL(this.props.topic);
+  async getImageURL({topic}) {
+    const imageURL = await HttpConnector.getImageURL(topic);
     return imageURL;
   }
 
@@ -42,6 +43,21 @@ class News extends Component {
         <a href={this.state.newsUrl}>더 보기</a>
       </Fragment >
     );
+  }
+
+  async componentDidMount() {
+    await this.loadNews({topic: this.props.topic});
+  }
+
+  async loadNews({topic}) {
+    const { title, content, newsUrl } = await this.getNews({topic: topic});
+    const { imageUrl } = await this.getImageURL({topic: topic});
+    this.setState({
+      newsTitle: title,
+      newsContent: content,
+      newsUrl,
+      imageUrl
+    });
   }
 }
 
