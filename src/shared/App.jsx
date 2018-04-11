@@ -10,7 +10,7 @@ class App extends Component {
       <Fragment>
         <Route exact path="/" component={LoginPage} />
         <Route exact path="/boards" component={BoardPage} />
-        <Route exact path="/boards/:keyword/comments" component={CommentPage} />
+        <Route exact path="/comments" component={CommentPage} />
       </Fragment>
     );
   }

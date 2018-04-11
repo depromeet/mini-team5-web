@@ -26,7 +26,11 @@ class LoginInputLine extends React.Component {
         {
           this.state.isPlaceHolderDisplay
             ? <div className="login-placeholder" onClick={this.onFocus}>{placeholder}</div>
-            : <input className="login-input" type="text" onChange={this.onTextChange} onBlur={this.onBlur} ref={(input) => {this.nameInput = input;}}/>
+            : <input className="login-input"
+              type="text"
+              onChange={this.onTextChange}
+              onBlur={this.onBlur}
+              ref={(input) => {this.nameInput = input;}}/>
         }
         <button className="login-button" onClick={this.onLogin}>START</button>
       </div>
@@ -58,7 +62,10 @@ class LoginInputLine extends React.Component {
 
     const res = await HttpConnector.login({ nickName: nickname });
     if (res) {
-      this.props.history.push("boards");
+      this.props.history.push({
+        pathname: "/comments",
+        state: { nickname: nickname }
+      });
     }
     else {
       alert("서버에서 문제가 발생했습니다!");

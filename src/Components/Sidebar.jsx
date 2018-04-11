@@ -9,7 +9,7 @@ class Sidebar extends Component {
     return (
       <div className="sidebar">
         <Icon />
-        <Rank />
+        <Rank keywords={this.props.keywords} />
         <Profile nickname={this.props.nickname} />
       </div>
     );
