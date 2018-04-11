@@ -11,11 +11,22 @@ class CommentList extends Component {
     };
   }
 
+  async componentWillReceiveProps(nextProps) {
+    const topic = nextProps.keyword;
+    const response = await HttpConnector.getComments(topic);
+    if (response !== null) {
+      this.setState({
+        comments: response
+      });
+    }
+  }
+
   render() {
     let commentComponent;
     if (this.state.comments.length === 0) {
       // TODO : json 오브젝트 수정이 필요할듯
-      commentComponent = <h1>{this.props.keyword.keyword} 에 대한 댓글이 아직 없습니다</h1>;
+      console.log(this.props.keyword);
+      commentComponent = <h1>{this.props.keyword} 에 대한 댓글이 아직 없습니다</h1>;
     } else {
       commentComponent = this.state.comments.map((element) =>
         <Comment content={element.content} nickname={element.nickname} key={element.content} />);
@@ -29,13 +40,7 @@ class CommentList extends Component {
   }
 
   async componentDidMount() {
-    const topic = this.props.keyword;
-    const response = await HttpConnector.getComments(topic);
-    if (response !== null) {
-      this.setState({
-        comments: response
-      });
-    }
+
   }
 }
 
