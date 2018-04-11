@@ -13,14 +13,6 @@ class News extends Component {
   }
 
   async componentWillReceiveProps(nextProps) {
-    // const { title, content, newsUrl } = await this.getNews({topic: nextProps.topic});
-    // const { imageUrl } = await this.getImageURL({topic: nextProps.topic});
-    // this.setState({
-    //   newsTitle: title,
-    //   newsContent: content,
-    //   newsUrl,
-    //   imageUrl
-    // });
     await this.loadNews({topic: nextProps.topic});
   }
 

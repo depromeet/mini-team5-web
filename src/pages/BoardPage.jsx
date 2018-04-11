@@ -22,7 +22,6 @@ class BoardPage extends Component {
 
   async componentDidMount() {
     const keywords = await HttpConnector.getKeywords();
-    console.log(keywords);
     this.setState({
       boardsItems: keywords
     });
