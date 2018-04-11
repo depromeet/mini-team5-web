@@ -3,18 +3,31 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
+    "node-sass": "^4.8.3",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "^1.1.4"
+    "react-scripts": "1.1.4",
+    "redux": "^3.7.2",
+    "semantic-ui-css": "^2.3.1",
+    "semantic-ui-react": "^0.79.1",
+    "storybook": "^1.0.0"
   },
   "scripts": {
+    "sass": "node-sass src/scss/ -o src/css/ --style compressed",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.4.0",
+    "@storybook/addon-links": "^3.4.0",
+    "@storybook/react": "^3.4.0",
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.7.0"
   }

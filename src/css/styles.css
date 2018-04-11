@@ -1,0 +1,352 @@
+@charset "UTF-8";
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+html,
+body {
+  width: 100%;
+  height: 100%; }
+
+::-webkit-input-placeholder {
+  /* 크롬 4–56 */
+  color: #9e9e9e;
+  opacity: 0.5; }
+
+:-moz-placeholder {
+  /* 파이어폭스 4–18 */
+  color: white;
+  opacity: 0.5; }
+
+::-moz-placeholder {
+  /* 파이어폭스 19–50 */
+  color: white;
+  opacity: 0.5; }
+
+:-ms-input-placeholder {
+  /* 인터넷 익스플로러 10+ */
+  color: white;
+  opacity: 0.5; }
+
+::placeholder {
+  /* 파이어폭스 51+, 크롬 57+ */
+  color: white;
+  opacity: 0.5; }
+
+#root {
+  height: inherit;
+  width: inherit; }
+
+.sidebar {
+  position: fixed;
+  width: 360px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  padding-top: 42px;
+  padding-left: 59px;
+  padding-bottom: 54px; }
+  .sidebar-icon {
+    display: inline-block;
+    margin-bottom: 20px;
+    width: 86px;
+    height: 91px;
+    font-family: Futura, sans-serif;
+    font-size: 72px;
+    font-weight: 800; }
+  .sidebar-rank {
+    margin: 0 auto;
+    padding: 0;
+    display: inline-block;
+    height: 31px;
+    font-family: Futura, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    list-style: none; }
+    .sidebar-rank li {
+      margin-bottom: 6px;
+      height: 29px; }
+    .sidebar-rank-element-number {
+      display: inline;
+      font-family: Futura, sans-serif;
+      font-size: 24px; }
+    .sidebar-rank-element-item {
+      display: inline;
+      margin-left: 28px;
+      font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', sans-serif;
+      font-size: 20px; }
+    .sidebar-rank-pager {
+      margin-top: 26px; }
+      .sidebar-rank-pager h4 {
+        font-family: Futura, sans-serif;
+        font-size: 30px;
+        font-weight: bold;
+        color: #e10101; }
+  .sidebar-profile {
+    margin-top: 111px;
+    display: inline-block; }
+    .sidebar-profile h2 {
+      font-family: Futura, sans-serif;
+      font-size: 72px;
+      font-weight: bold;
+      line-height: 0.8; }
+
+.comment-news {
+  margin-left: 360px;
+  width: 428px;
+  height: 100%;
+  position: fixed;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  background-color: #f9f9f9; }
+  .comment-news img {
+    width: 100%; }
+  .comment-news h1 {
+    margin-left: 42px;
+    margin-right: 42px;
+    margin-bottom: 28px;
+    display: inline-block;
+    font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #e10101; }
+  .comment-news p {
+    margin-left: 43px;
+    margin-right: 43px;
+    display: inline-block;
+    font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    text-align: left;
+    color: #000000; }
+  .comment-news a {
+    margin-left: 43px;
+    margin-right: 43px;
+    display: inline-block;
+    font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left; }
+
+.comment-viewer {
+  margin-left: 800px;
+  margin-top: 60px;
+  position: fixed;
+  width: 600px; }
+
+.comment-list {
+  display: inline;
+  float: right;
+  margin: 20px; }
+
+.comment-input {
+  bottom: 0;
+  right: 0;
+  color: white;
+  background: transparent;
+  border: none;
+  font-size: 23px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  outline: none;
+  margin-left: 20px;
+  margin-top: 20px; }
+
+.comment-send-button {
+  font-size: 23px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  background: transparent;
+  border: transparent;
+  float: right;
+  margin-right: 20px;
+  margin-top: 22px; }
+
+.comment-input-box {
+  background: #e10101;
+  height: 70px;
+  width: 40%;
+  bottom: 0;
+  right: 0;
+  position: absolute; }
+
+.comment-detail {
+  margin: 0 0 147px 40px;
+  font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left; }
+  .comment-detail h3 {
+    margin: 0 0 17px 0;
+    font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #e10101; }
+  .comment-detail p {
+    font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    color: #000000; }
+
+.comment-form {
+  display: inline-block;
+  height: 10rem;
+  width: 100%;
+  height: 80px;
+  bottom: 0;
+  top: 0;
+  margin: 19% auto auto;
+  background: #e10101; }
+  .comment-form textarea {
+    background-color: #e10101;
+    font-family: Futura;
+    font-size: 20px;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ffffff;
+    -webkit-appearance: none;
+    height: 100%;
+    width: 70%;
+    border: none;
+    resize: none;
+    overflow: auto; }
+    .comment-form textarea::placeholder {
+      opacity: 0.5;
+      font-weight: 500; }
+  .comment-form div {
+    float: right;
+    margin-right: 60px;
+    margin-top: 27px; }
+  .comment-form input[type=submit] {
+    font-family: Futura;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ffffff;
+    border: none;
+    background-color: #e10101; }
+
+html,
+body {
+  width: 100%;
+  height: 100%; }
+
+#root {
+  height: inherit;
+  width: inherit; }
+
+.login-container {
+  width: 100%;
+  height: 100%; }
+
+.login-splash {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto; }
+
+.login-hr {
+  height: 87px;
+  width: 0.8px;
+  background: white;
+  border-right: 0px;
+  float: left;
+  margin-left: 50px;
+  margin-top: 27px;
+  opacity: 0.5; }
+
+.login-input {
+  font-family: Futura;
+  font-size: 40px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  white-space: pre-line;
+  color: #ffffff;
+  opacity: 0.5;
+  float: left;
+  margin-left: 21px;
+  margin-top: 45px;
+  background: none;
+  border: none;
+  outline: none;
+  width: 400px; }
+
+.login-placeholder {
+  font-family: Futura;
+  font-size: 23px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  white-space: pre-line;
+  color: #ffffff;
+  opacity: 0.5;
+  float: left;
+  margin-left: 21px;
+  margin-top: 25px; }
+
+.login-button {
+  font-family: Futura;
+  font-size: 23px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  background: transparent;
+  border: transparent;
+  float: right;
+  margin-right: 36px;
+  margin-top: 50px; }
+
+.login-title {
+  position: fixed;
+  margin-left: 57px;
+  margin-top: 40px; }
+
+.login-background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: gray; }
+
+.login-input-line {
+  position: absolute;
+  height: 10rem;
+  width: 100%;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  margin-top: 19%;
+  background: #E10101; }
