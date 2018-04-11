@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-import HttpConnector from "../network/HttpConnector";
 import Pager from "./Pager";
 
 const ListElement = ({ number, item }) => (
@@ -21,7 +20,7 @@ class Rank extends Component {
   }
 
   async componentDidMount() {
-    const keywords = await HttpConnector.getKeywords();
+    const keywords = this.props.keywords;
     const begin = (this.state.page - 1) * 7;
     this.setState({
       totalPage: keywords.length,
