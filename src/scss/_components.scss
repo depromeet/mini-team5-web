@@ -27,8 +27,8 @@ body {
         margin-bottom: 20px;
         width: 86px;
         height: 91px;
-        font-family: Futura;
-        font-size: 45px;
+        font-family: Futura, sans-serif;
+        font-size: 72px;
         font-weight: 800;
     }
     &-rank {
@@ -36,8 +36,8 @@ body {
         padding: 0;
         display: inline-block;
         height: 31px;
-        font-family: Futura;
-        font-size: 15px;
+        font-family: Futura, sans-serif;
+        font-size: 24px;
         font-weight: bold;
         list-style: none;
         li {
@@ -47,21 +47,21 @@ body {
         &-element {
             &-number {
                 display: inline;
-                font-family: Futura;
-                font-size: 17px;
+                font-family: Futura, sans-serif;
+                font-size: 24px;
             }
             &-item {
                 display: inline;
-                margin-left: 15px;
-                font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
-                font-size: 15px;
+                margin-left: 28px;
+                font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', sans-serif;
+                font-size: 20px;
             }
         }
         &-pager {
             margin-top: 26px;
             h4 {
-                font-family: Futura;
-                font-size: 25px;
+                font-family: Futura, sans-serif;
+                font-size: 30px;
                 font-weight: bold;
                 color: #e10101;
             }
@@ -70,8 +70,8 @@ body {
     &-profile {
         margin-top: 111px;
         h2 {
-            font-family: Futura;
-            font-size: 50px;
+            font-family: Futura, sans-serif;
+            font-size: 72px;
             font-weight: bold;
             line-height: 0.8;
         }
@@ -98,7 +98,7 @@ body {
             margin-right: 42px;
             margin-bottom: 28px;
             display: inline-block;
-            font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+            font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', sans-serif;
             font-size: 24px;
             font-weight: bold;
             color: #e10101;
@@ -107,7 +107,7 @@ body {
             margin-left: 43px;
             margin-right: 43px;
             display: inline-block;
-            font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+            font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', sans-serif;
             font-size: 18px;
             font-weight: normal;
             text-align: left;
@@ -117,21 +117,24 @@ body {
             margin-left: 43px;
             margin-right: 43px;
             display: inline-block;
-            font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+            font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', sans-serif;
             font-size: 18px;
             font-weight: bold;
             text-align: left;
         }
     }
-    &-list {
+    &-viewer {
         margin-left: 800px;
         margin-top: 60px;
         position: fixed;
         width: 600px;
     }
+    &-list {
+        display: inline;
+    }
     &-detail {
         margin: 0 0 147px 40px;
-        font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+        font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', sans-serif;
         font-size: 20px;
         font-style: normal;
         font-stretch: normal;
@@ -140,16 +143,65 @@ body {
         text-align: left;
         h3 {
             margin: 0 0 17px 0;
-            font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+            font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', sans-serif;
             font-size: 20px;
             font-weight: bold;
             color: #e10101;
         }
         p {
-            font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+            font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', sans-serif;
             font-size: 20px;
             font-weight: normal;
             color: #000000;
+        }
+    }
+    &-form {
+        display: inline-block;
+        height: 10rem;
+        width: 100%;
+        height: 80px;
+        bottom: 0;
+        top: 0;
+        margin: 19% auto auto;
+        background: #e10101;
+        textarea {
+            background-color: #e10101;
+            font-family: Futura;
+            font-size: 20px;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: left;
+            color: #ffffff;
+            -webkit-appearance: none;
+            height: 100%;
+            width: 70%;
+            border: none;
+            resize: none;
+            overflow: auto;
+            &::placeholder {
+                opacity: 0.5;
+                font-weight: 500;
+            }
+        }
+        div {
+            float: right;
+            margin-right: 60px;
+            margin-top: 27px;
+        }
+        input[type=submit] {
+            font-family: Futura;
+            font-size: 20px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: left;
+            color: #ffffff;
+            border: none;
+            background-color: #e10101;
         }
     }
 }
